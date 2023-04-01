@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: peachpuff;
+    padding: 50px;
+    font-family: sans-serif;
+}
+
+ol {
+    list-style-position: inside;
+    list-style: none;
+    counter-reset: item;
+}
+
+svg {
+    transition: all 0.3s ease 0s;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.title__list ol {
+    display: inline-block;
+}
+
+.title :not(ol, li) {
+    text-align: center;
+}
+
+li {
+    text-align: start; 
+}
+
+:root {
+    --example_background: #b890c5;
+    --example_border: #000;
+    --icon_default: rgb(131, 131, 131);
+    --icon_warning: #f8f521;
+    --icon_success: #56db5c;
+    --icon_danger: #ff2e2e;
+    --icon_background: #222222;
+}
+
+li::before {
+    counter-increment: item;
+    content: counter(item) ') ';
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+[class*="example"] {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--example_background);
+    border: 1px solid var(--example_border);
+}
+
+[class*="example"]:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+[class*="example"] svg {
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--icon_background);
+    color: var(--icon_default);
+}
+
+[class*="example"] svg:hover {
+    outline: 5px black;
+    outline-offset: 5px;
+}
+
+[class*="example"]:nth-child(3) svg:hover {
+    outline-style: dashed;
+    color: var(--icon_warning);
+}
+
+[class*="example"]:nth-child(4) svg:hover {
+    outline-style: double;
+    color: var(--icon_success);
+}

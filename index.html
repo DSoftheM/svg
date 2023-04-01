@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="title">
+            <h1 class="title__header">Способы вставить svg в html</h1>
+            <div class="title__list">
+                <ol>
+                    <li>Через тег img</li>
+                    <li>Напрямую запихнуть svg в html</li>
+                    <li>Через спрайт</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="test-example-1">
+            <h2>Способ 1</h2>
+            <div class="cons">
+                <h4>Минусы:</h4>
+                <ol>
+                    <li>Нельзя задавать свойства для svg, кроме width и height</li>
+                </ol>
+            </div>
+            <div class="pros">
+                <h4>Плюсы:</h4>
+                <ol>
+                    <li>Удобно и компактно в html-коде</li>
+                    <li>Не нужно изменять svg для того, чтобы заработало</li>
+                </ol>
+            </div>
+            <div class="icon">
+                <img src="img/circle-mark.svg" alt="alt" />
+            </div>
+        </div>
+
+        <div class="test-example-2">
+            <h2>Способ 2</h2>
+            <div class="cons">
+                <h4>Минусы:</h4>
+                <ol>
+                    <li>
+                        Допустим, эта иконка используется в 20 местах. А теперь подумай, что нужно сделать, чтобы поменять эту
+                        иконку во всех местах.
+                    </li>
+                    <li>
+                        Если нужна эта же иконка, но в другом, например, цвете, придется создавать отдельный файл под это.
+                        Например, box.svg и box-red.svg
+                    </li>
+                    <li>Сильно засоряется html-код из-за атрибута d у тега path</li>
+                </ol>
+            </div>
+            <div class="pros">
+                <h4>Плюсы:</h4>
+                <ol>
+                    <li>Не нужно изменять svg для того, чтобы заработало</li>
+                    <li>Можно задавать все доступные свойства для svg</li>
+                </ol>
+            </div>
+            <h3>Наведи на пример:</h3>
+            <div class="icon">
+                <svg fill="currentColor" viewBox="0 0 32 32">
+                    <path
+                        d="M15,21a1,1,0,0,1-.71-.29l-4-4a1,1,0,0,1,1.42-1.42L15,18.59l6.29-6.3a1,1,0,0,1,1.42,1.42l-7,7A1,1,0,0,1,15,21Z"
+                    />
+                    <path d="M16,29A13,13,0,1,1,29,16,13,13,0,0,1,16,29ZM16,5A11,11,0,1,0,27,16,11,11,0,0,0,16,5Z" />
+                </svg>
+            </div>
+            <p>Значение currentColor у атрибута fill позволяет брать цвет из свойства color в css</p>
+        </div>
+
+        <div class="test-example-3">
+            <h2>Способ 3</h2>
+            <div class="cons">
+                <h4>Минусы:</h4>
+                <ol>
+                    <li>Нужно изменять svg для того, чтобы заработало</li>
+                    <li>Нужно использовать какой-то use</li>
+                    <li>Не работает без live Server ?</li>
+                    <li>Не поддерживает stroke-dasharray и stroke-offset</li>
+                </ol>
+            </div>
+            <div class="pros">
+                <h4>Плюсы:</h4>
+                <ol>
+                    <li>Поменял в одном месте - поменялось везде</li>
+                    <li>
+                        Если нужна эта же иконка, но в другом цвете, можно добавить дополнительный класс и по нему изменять цвет
+                    </li>
+                    <li>Можно задавать все доступные свойства для svg</li>
+                    <li>Не засоряется html-код</li>
+                </ol>
+            </div>
+            <h3>Наведи на пример:</h3>
+            <div class="icon">
+                <svg>
+                    <use xlink:href="img/circle-mark-modified.svg#circle-mark"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="also">
+            <p>
+                Ссылка для автоматического изменения svg-кода:
+                <a href="https://svgsprit.es">svgsprit.es</a>
+            </p>
+        </div>
+    </body>
+</html>
